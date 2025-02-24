@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Guess My Number!</title>
+
+    
+  </head>
+  <body>
+    <header class="header">
+      <div class="header--title-box">
+        <h1 class="header--title">Guess My Number!</h1>
+        <span class="between">( Between 1 and 100 )</span>
+      </div>
+      <button class="btn again">Start again!!!</button>
+      <div class="number-box">
+        <span class="number">?</span>
+      </div>
+    </header>
+    <main>
+      <div class="left">
+        <span class="msg label-highscore">
+          🥇 Highscore: <span class="highscore">0</span>
+        </span>
+      </div>
+      <div class="center">
+        <span class="msg message">Start guessing...</span>
+        <input class="guess"  type="number"/>
+        <button class="btn check">Check!</button>
+      </div>
+      <div class="right">
+        <span class="msg label-score">💯 Score: <span class="score">20</span></span>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.min.js"></script>
+    <script src="script.js"></script>
+
+  </body>
+</html>
