@@ -2,14 +2,14 @@
 
 /////////////////////////////////////////////////////////////
 // Selectors
+const checkBtn = document.querySelector('.check');
+const againBtn = document.querySelector('.again');
+
 const numberInput = document.querySelector('.guess');
 const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const highscore = document.querySelector('.highscore');
 const number = document.querySelector('.number');
-
-const checkBtn = document.querySelector('.check');
-const againBtn = document.querySelector('.again');
 
 
 /////////////////////////////////////////////////////////////
@@ -31,6 +31,10 @@ const generateMessage = function (msg) {
   message.textContent = msg;
 }
 
+const generateScore = function (el, score) {
+  el.textContent = score;
+}
+
 const resetState = function() {
   state.guessNumber = 0,
   state.score = 20;
@@ -38,7 +42,7 @@ const resetState = function() {
 
   number.textContent = '?';
   numberInput.value = '';
-  score.textContent = state.score;
+  generateScore(score, state.score);
   generateMessage('Start guessing...');
 };
 
@@ -51,7 +55,7 @@ const checkNumber = function () {
 
   //guards
   if (state.score < 1) {
-    generateMessage('You loose  😩');
+    generateMessage('You loose 😩');
     return
   }
   if (state.guessNumber < 1) {
@@ -67,13 +71,13 @@ const checkNumber = function () {
 
     if (state.score > state.highscore) {
       state.highscore = state.score;
-      highscore.textContent  = state.highscore;
+      generateScore(highscore, state.highscore)
     } 
 
   } else {
     generateMessage(`Your number is ${state.correctNumber > state.guessNumber ? 'low' : 'high'} 😜 try again !!!`)
     state.score--;
-    score.textContent = state.score;
+    generateScore(score, state.score);
   }
 };
 
